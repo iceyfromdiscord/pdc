@@ -236,11 +236,35 @@
       </div>
     </div>
     <script type="module">
-      async function getUserId(username) {
+      // async function getUserId(username) {
+      //   // Using corsproxy.io to bypass CORS restrictions on localhost
+      //   let response = await fetch(
+      //     `https://corsproxy.io/?` +
+      //       encodeURIComponent(`https://users.roblox.com/v1/usernames/users`),
+      //     {
+      //       method: "POST",
+      //       headers: {
+      //         "Content-Type": "application/json",
+      //       },
+      //       body: JSON.stringify({
+      //         usernames: [username],
+      //         excludeBannedUsers: false,
+      //       }),
+      //     },
+      //   );
+      //   let data = await response.json();
+      //   // Check if data.data exists and has items
+      //   if (data.data && data.data.length > 0) {
+      //     return data.data[0].id;
+      //   } else {
+      //     console.error("User not found via API");
+      //     return null;
+      //   }
+      // }
+        async function getUserId(username) {
         // Using corsproxy.io to bypass CORS restrictions on localhost
         let response = await fetch(
-          `https://corsproxy.io/?` +
-            encodeURIComponent(`https://users.roblox.com/v1/usernames/users`),
+          `https://users.roblox.com/v1/usernames/users`,
           {
             method: "POST",
             headers: {
@@ -364,3 +388,4 @@
     </script>
   </body>
 </html>
+

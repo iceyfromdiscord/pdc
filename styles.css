@@ -24,6 +24,7 @@ body {
   align-items: center;
   min-height: 100vh;
   color: var(--text-white);
+  flex-direction: column;
 }
 
 .modal-container {
@@ -208,3 +209,4 @@ input:checked + .slider:before {
 .set-btn:hover {
   background-color: #6a1bb3; /* Darker purple on hover */
 }
+

@@ -16,7 +16,7 @@
       <div class="modal-content">
         <div class="stats-header-card">
           <h2>EDIT STATS</h2>
-          <p>Edit user stats either from username, or user id.</p>
+          <p>Edit user stats from username.</p>
         </div>
 
         <div class="form-row user-row">
@@ -26,13 +26,13 @@
             class="input-field"
             id="username"
           />
-          <span class="or-text">OR</span>
+          <!-- <span class="or-text">OR</span>
           <input
             type="number"
             placeholder="User ID"
             class="input-field"
             id="userId"
-          />
+          /> -->
         </div>
 
         <div class="form-row">
@@ -236,63 +236,14 @@
       </div>
     </div>
     <script type="module">
-      async function getUserId(username) {
-        // Using corsproxy.io to bypass CORS restrictions on localhost
-        let response = await fetch(
-          `https://corsproxy.io/?` +
-            encodeURIComponent(`https://users.roblox.com/v1/usernames/users`),
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              usernames: [username],
-              excludeBannedUsers: false,
-            }),
-          },
-        );
-        let data = await response.json();
-        // Check if data.data exists and has items
-        if (data.data && data.data.length > 0) {
-          return data.data[0].id;
-        } else {
-          console.error("User not found via API");
-          return null;
-        }
-      }
-      //   async function getUserId(username) {
-      //   // Using corsproxy.io to bypass CORS restrictions on localhost
-      //   let response = await fetch(
-      //     `https://users.roblox.com/v1/usernames/users`,
-      //     {
-      //       method: "POST",
-      //       headers: {
-      //         "Content-Type": "application/json",
-      //         'Access-Control-Allow-Origin': '*'
-      //       },
-      //       body: JSON.stringify({
-      //         usernames: [username],
-      //         excludeBannedUsers: false,
-      //       }),
-      //     },
-      //   );
-      //   let data = await response.json();
-      //   // Check if data.data exists and has items
-      //   if (data.data && data.data.length > 0) {
-      //     return data.data[0].id;
-      //   } else {
-      //     console.error("User not found via API");
-      //     return null;
-      //   }
-      // }
-
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
       import {
         getDatabase,
         ref,
         set,
+        get,
+        update,
       } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
       import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
       // TODO: Add SDKs for Firebase products that you want to use
@@ -317,7 +268,7 @@
 
       // grab values
       const usernameInput = document.getElementById("username");
-      const userIdInput = document.getElementById("userId");
+      // const userIdInput = document.getElementById("userId");
       const raisedInput = document.getElementById("raised");
       const donatedInput = document.getElementById("donated");
       const isVipInput = document.getElementById("isVip");
@@ -328,36 +279,17 @@
       // firebase database
       const db = getDatabase(app);
 
-      usernameInput.addEventListener("focusout", async () => {
-        if (usernameInput.value) {
-          let userId = await getUserId(usernameInput.value);
-          if (userId) {
-            userIdInput.value = userId;
-          }
-        }
-      });
-
       // set button
       setBtn.addEventListener("click", async () => {
         let username = usernameInput.value;
-        let userId = userIdInput.value;
         let raised = raisedInput.value;
         let donated = donatedInput.value;
         let isVip = isVipInput.checked;
         let isDonatedHidden = isDonatedHiddenInput.checked;
         let booth = boothInput.value;
 
-        if (username && !userId) {
-          console.log("grabbing userId from username on ROBLOX");
-          userId = await getUserId(username);
-          console.log(`got userId: ${userId}`);
-          if (userId) {
-            userIdInput.value = userId;
-          }
-        }
-
         console.log({
-          userId,
+          username,
           raised,
           donated,
           isVip,
@@ -365,10 +297,33 @@
           booth,
         });
 
-        if (userId) {
+        // check if exists
+        const snapshot = await get(ref(db, `/users/${username}`));
+        const exists = snapshot.exists();
+
+        if (exists) {
+          update(ref(db, `/users/${username}`), {
+            username,
+            raised,
+            donated,
+            isVip,
+            isDonatedHidden,
+            booth,
+          })
+            .then(() => {
+              alert("Data updated successfully!");
+            })
+            .catch((error) => {
+              console.error("Error updating data: ", error);
+              alert("Error updating data.");
+            });
+          return;
+        }
+
+        if (username) {
           // set values
-          set(ref(db, userId), {
-            userId,
+          set(ref(db, `/users/${username}`), {
+            username,
             raised,
             donated,
             isVip,
@@ -377,18 +332,17 @@
           })
             .then(() => {
               alert("Data saved successfully!");
+              // window.location.href =
+              //   "https://www.roblox.com/games/127467038054966/PLS-DONATE";
             })
             .catch((error) => {
               console.error("Error saving data: ", error);
               alert("Error saving data.");
             });
         } else {
-          alert("User ID is missing or could not be found.");
+          alert("Username is missing or could not be found.");
         }
       });
     </script>
   </body>
 </html>
-
-
-

@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit Stats</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="modal-container">
+      <div class="modal-header">
+        <h1>EDIT</h1>
+        <button class="close-btn">&times;</button>
+      </div>
+
+      <div class="modal-content">
+        <div class="stats-header-card">
+          <h2>EDIT STATS</h2>
+          <p>Edit user stats either from username, or user id.</p>
+        </div>
+
+        <div class="form-row user-row">
+          <input
+            type="text"
+            placeholder="Username"
+            class="input-field"
+            id="username"
+          />
+          <span class="or-text">OR</span>
+          <input
+            type="number"
+            placeholder="User ID"
+            class="input-field"
+            id="userId"
+          />
+        </div>
+
+        <div class="form-row">
+          <input
+            type="number"
+            placeholder="Raised"
+            class="input-field"
+            id="raised"
+          />
+          <input
+            type="number"
+            placeholder="Donated"
+            class="input-field"
+            id="donated"
+          />
+        </div>
+
+        <div class="form-row toggles-row">
+          <div class="toggle-group">
+            <label>Are they VIP?</label>
+            <label class="toggle-switch">
+              <input type="checkbox" id="isVip" />
+              <span class="slider"></span>
+            </label>
+          </div>
+          <div class="toggle-group">
+            <label>Donated hidden?</label>
+            <label class="toggle-switch">
+              <input type="checkbox" id="isDonatedHidden" />
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row booth-row">
+          <select class="input-field booth-input" id="booth">
+            <option value="BasicBooth" selected>BasicBooth</option>
+            <option value="GoldBooth">GoldBooth</option>
+            <option value="DiamondBooth">DiamondBooth</option>
+            <option value="VoidBooth">VoidBooth</option>
+            <option value="10MBooth">10MBooth</option>
+            <option value="GhostBooth">GhostBooth</option>
+            <option value="DevilBooth">DevilBooth</option>
+            <option value="GraveyardBooth">GraveyardBooth</option>
+            <option value="HalloweenCandyBooth">HalloweenCandyBooth</option>
+            <option value="HauntedHouseBooth">HauntedHouseBooth</option>
+            <option value="PumpkinBooth">PumpkinBooth</option>
+            <option value="WitchBooth">WitchBooth</option>
+            <option value="AtlasBooth">AtlasBooth</option>
+            <option value="CenuxxBooth">CenuxxBooth</option>
+            <option value="TropicalBooth">TropicalBooth</option>
+            <option value="ArcadeBooth">ArcadeBooth</option>
+            <option value="CafeBooth">CafeBooth</option>
+            <option value="MovieBooth">MovieBooth</option>
+            <option value="FlowerBooth">FlowerBooth</option>
+            <option value="FortuneBooth">FortuneBooth</option>
+            <option value="FrogBooth">FrogBooth</option>
+            <option value="FruitBooth">FruitBooth</option>
+            <option value="HoneyBooth">HoneyBooth</option>
+            <option value="HotdogBooth">HotdogBooth</option>
+            <option value="IceCreamBooth">IceCreamBooth</option>
+            <option value="JungleBooth">JungleBooth</option>
+            <option value="OrientalBooth">OrientalBooth</option>
+            <option value="YippeeBooth">YippeeBooth</option>
+            <option value="SpeechBooth">SpeechBooth</option>
+            <option value="StageBooth">StageBooth</option>
+            <option value="StarryBooth">StarryBooth</option>
+            <option value="BurgerYumBooth">BurgerYumBooth</option>
+            <option value="CatBooth">CatBooth</option>
+            <option value="CloudyBooth">CloudyBooth</option>
+            <option value="ConvenienceBooth">ConvenienceBooth</option>
+            <option value="DogBooth">DogBooth</option>
+            <option value="DonutBooth">DonutBooth</option>
+            <option value="EgyptianBooth">EgyptianBooth</option>
+            <option value="FireBooth">FireBooth</option>
+            <option value="GlitchBooth">GlitchBooth</option>
+            <option value="YummyPizzaBooth">YummyPizzaBooth</option>
+            <option value="IcyBooth">IcyBooth</option>
+            <option value="JellyBooth">JellyBooth</option>
+            <option value="RainbowBooth">RainbowBooth</option>
+            <option value="LemonadeBooth">LemonadeBooth</option>
+            <option value="LindonFunnyBooth">LindonFunnyBooth</option>
+            <option value="MakeWishBooth">MakeWishBooth</option>
+            <option value="MedievalBooth">MedievalBooth</option>
+            <option value="MilitaryBooth">MilitaryBooth</option>
+            <option value="MusicBooth">MusicBooth</option>
+            <option value="PixelBooth">PixelBooth</option>
+            <option value="RacingCarBooth">RacingCarBooth</option>
+            <option value="RockBooth">RockBooth</option>
+            <option value="RubyBooth">RubyBooth</option>
+            <option value="ShipSeaBooth">ShipSeaBooth</option>
+            <option value="SoupBooth">SoupBooth</option>
+            <option value="SpaceInterfaceBooth">SpaceInterfaceBooth</option>
+            <option value="SpraryPaintBooth">SpraryPaintBooth</option>
+            <option value="StandGrillBooth">StandGrillBooth</option>
+            <option value="SunMoonBooth">SunMoonBooth</option>
+            <option value="SushiBooth">SushiBooth</option>
+            <option value="ToyBooth">ToyBooth</option>
+            <option value="UnoCardBooth">UnoCardBooth</option>
+            <option value="VendingMachineBooth">VendingMachineBooth</option>
+            <option value="WishingWellBooth">WishingWellBooth</option>
+            <option value="SlimeBooth">SlimeBooth</option>
+            <option value="AquariumBooth">AquariumBooth</option>
+            <option value="HotBalloonBooth">HotBalloonBooth</option>
+            <option value="PetSimXBooth">PetSimXBooth</option>
+            <option value="GypsyStallBooth">GypsyStallBooth</option>
+            <option value="FireplaceBooth">FireplaceBooth</option>
+            <option value="MiningBooth">MiningBooth</option>
+            <option value="CannonBooth">CannonBooth</option>
+            <option value="WorldCupBooth">WorldCupBooth</option>
+            <option value="ThroneBooth">ThroneBooth</option>
+            <option value="FarmBooth">FarmBooth</option>
+            <option value="ClassroomBooth">ClassroomBooth</option>
+            <option value="BiplaneBooth">BiplaneBooth</option>
+            <option value="GlassBooth">GlassBooth</option>
+            <option value="BlackHoleBooth">BlackHoleBooth</option>
+            <option value="CatalogAvatarCreatorBooth">
+              CatalogAvatarCreatorBooth
+            </option>
+            <option value="IdioticInvestingBooth">IdioticInvestingBooth</option>
+            <option value="DoorsBooth">DoorsBooth</option>
+            <option value="EpicBooth">EpicBooth</option>
+            <option value="DreamingBooth">DreamingBooth</option>
+            <option value="ZenuuxBooth">ZenuuxBooth</option>
+            <option value="WorkingTableBooth">WorkingTableBooth</option>
+            <option value="BrokenShipBooth">BrokenShipBooth</option>
+            <option value="HotAirBallonBooth">HotAirBallonBooth</option>
+            <option value="AnniversaryBooth">AnniversaryBooth</option>
+            <option value="InvisibleBooth">InvisibleBooth</option>
+            <option value="LazarBeamBooth">LazarBeamBooth</option>
+            <option value="ScarecrowBooth">ScarecrowBooth</option>
+            <option value="CoolBooth">CoolBooth</option>
+            <option value="1MBooth">1MBooth</option>
+            <option value="ValentinesBooth">ValentinesBooth</option>
+            <option value="RocketBooth">RocketBooth</option>
+            <option value="OlixBooth">OlixBooth</option>
+            <option value="StaffBooth">StaffBooth</option>
+            <option value="SeekBooth">SeekBooth</option>
+            <option value="EronBooth">EronBooth</option>
+            <option value="RobertBooth">RobertBooth</option>
+            <option value="SeekBooth2">SeekBooth2</option>
+            <option value="GlassAnimalsBooth">GlassAnimalsBooth</option>
+            <option value="TrainBooth">TrainBooth</option>
+            <option value="LectureBooth">LectureBooth</option>
+            <option value="LegacyBooth">LegacyBooth</option>
+            <option value="JulianBooth">JulianBooth</option>
+            <option value="GalaxyBooth">GalaxyBooth</option>
+            <option value="CastleBooth">CastleBooth</option>
+            <option value="TheHuntBooth">TheHuntBooth</option>
+            <option value="DJBooth">DJBooth</option>
+            <option value="EndowmentBooth">EndowmentBooth</option>
+            <option value="SkyscraperBooth">SkyscraperBooth</option>
+            <option value="PieBooth">PieBooth</option>
+            <option value="StepBooth">StepBooth</option>
+            <option value="UnicornAcademyBooth">UnicornAcademyBooth</option>
+            <option value="RecordingStudioBooth">RecordingStudioBooth</option>
+            <option value="TypeRaceBooth">TypeRaceBooth</option>
+            <option value="TacoBooth">TacoBooth</option>
+            <option value="TeaBooth">TeaBooth</option>
+            <option value="DonationMadnessBooth">DonationMadnessBooth</option>
+            <option value="MagicianBooth">MagicianBooth</option>
+            <option value="PixelPlaygroundBooth">PixelPlaygroundBooth</option>
+            <option value="ConstructionBooth">ConstructionBooth</option>
+            <option value="FishingBooth">FishingBooth</option>
+            <option value="SurfBooth">SurfBooth</option>
+            <option value="CookieBooth">CookieBooth</option>
+            <option value="PraefectusStand">PraefectusStand</option>
+            <option value="BeachBooth">BeachBooth</option>
+            <option value="CavemanBooth">CavemanBooth</option>
+            <option value="CandyBooth">CandyBooth</option>
+            <option value="VIPBooth">VIPBooth</option>
+            <option value="RitualBooth">RitualBooth</option>
+            <option value="CarouselBooth">CarouselBooth</option>
+            <option value="WuataunBooth">WuataunBooth</option>
+            <option value="HammockBooth">HammockBooth</option>
+            <option value="UFOBooth">UFOBooth</option>
+            <option value="PremiumBooth">PremiumBooth</option>
+            <option value="VideoGameBooth">VideoGameBooth</option>
+            <option value="CrystalBooth">CrystalBooth</option>
+            <option value="GardenerBooth">GardenerBooth</option>
+            <option value="FerrisWheelBooth">FerrisWheelBooth</option>
+            <option value="TombstoneBooth">TombstoneBooth</option>
+            <option value="VampireBooth">VampireBooth</option>
+            <option value="BoogeymanBooth">BoogeymanBooth</option>
+            <option value="SpiderBooth">SpiderBooth</option>
+            <option value="JackOLanternBooth">JackOLanternBooth</option>
+            <option value="HalloweenSweetsBooth">HalloweenSweetsBooth</option>
+            <option value="WItchCauldronBooth">WItchCauldronBooth</option>
+            <option value="FreakyBooth">FreakyBooth</option>
+            <option value="HugeSkyscraperBooth">HugeSkyscraperBooth</option>
+            <option value="CraneBooth">CraneBooth</option>
+            <option value="AcidBooth">AcidBooth</option>
+            <option value="CampfireBooth">CampfireBooth</option>
+            <option value="CheerBearBooth">CheerBearBooth</option>
+            <option value="GrumpyBearBooth">GrumpyBearBooth</option>
+            <option value="FunshineBearBooth">FunshineBearBooth</option>
+          </select>
+        </div>
+
+        <button class="set-btn" id="setBtn">SET</button>
+      </div>
+    </div>
+    <script type="module">
+      async function getUserId(username) {
+        // Using corsproxy.io to bypass CORS restrictions on localhost
+        let response = await fetch(
+          `https://corsproxy.io/?` +
+            encodeURIComponent(`https://users.roblox.com/v1/usernames/users`),
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              usernames: [username],
+              excludeBannedUsers: false,
+            }),
+          },
+        );
+        let data = await response.json();
+        // Check if data.data exists and has items
+        if (data.data && data.data.length > 0) {
+          return data.data[0].id;
+        } else {
+          console.error("User not found via API");
+          return null;
+        }
+      }
+
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-app.js";
+      import {
+        getDatabase,
+        ref,
+        set,
+      } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-database.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.8.0/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyCQDAhtweIRUkYorij6IKfDXK3S1z3H3Mg",
+        authDomain: "cool-pdc.firebaseapp.com",
+        databaseURL: "https://cool-pdc-default-rtdb.firebaseio.com",
+        projectId: "cool-pdc",
+        storageBucket: "cool-pdc.firebasestorage.app",
+        messagingSenderId: "487565760910",
+        appId: "1:487565760910:web:f5fa109c3256fe094eacdf",
+        measurementId: "G-E32Z3VR7DK",
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+
+      // grab values
+      const usernameInput = document.getElementById("username");
+      const userIdInput = document.getElementById("userId");
+      const raisedInput = document.getElementById("raised");
+      const donatedInput = document.getElementById("donated");
+      const isVipInput = document.getElementById("isVip");
+      const isDonatedHiddenInput = document.getElementById("isDonatedHidden");
+      const boothInput = document.getElementById("booth");
+      const setBtn = document.getElementById("setBtn");
+
+      // firebase database
+      const db = getDatabase(app);
+
+      usernameInput.addEventListener("focusout", async () => {
+        if (usernameInput.value) {
+          let userId = await getUserId(usernameInput.value);
+          if (userId) {
+            userIdInput.value = userId;
+          }
+        }
+      });
+
+      // set button
+      setBtn.addEventListener("click", async () => {
+        let username = usernameInput.value;
+        let userId = userIdInput.value;
+        let raised = raisedInput.value;
+        let donated = donatedInput.value;
+        let isVip = isVipInput.checked;
+        let isDonatedHidden = isDonatedHiddenInput.checked;
+        let booth = boothInput.value;
+
+        if (username && !userId) {
+          console.log("grabbing userId from username on ROBLOX");
+          userId = await getUserId(username);
+          console.log(`got userId: ${userId}`);
+          if (userId) {
+            userIdInput.value = userId;
+          }
+        }
+
+        console.log({
+          userId,
+          raised,
+          donated,
+          isVip,
+          isDonatedHidden,
+          booth,
+        });
+
+        if (userId) {
+          // set values
+          set(ref(db, userId), {
+            userId,
+            raised,
+            donated,
+            isVip,
+            isDonatedHidden,
+            booth,
+          })
+            .then(() => {
+              alert("Data saved successfully!");
+            })
+            .catch((error) => {
+              console.error("Error saving data: ", error);
+              alert("Error saving data.");
+            });
+        } else {
+          alert("User ID is missing or could not be found.");
+        }
+      });
+    </script>
+  </body>
+</html>

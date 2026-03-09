@@ -326,7 +326,7 @@
 
         if (exists) {
           update(ref(db, `/users/${username}`), {
-            username,
+            username.toLowerCase(),
             raised,
             donated,
             isVip,
@@ -343,10 +343,10 @@
           return;
         }
 
-        if (username) {
+        if (username.toLowerCase()) {
           // set values
           set(ref(db, `/users/${username}`), {
-            username,
+            username.toLowerCase(),
             raised,
             donated,
             isVip,
@@ -369,6 +369,7 @@
     </script>
   </body>
 </html>
+
 
 
 

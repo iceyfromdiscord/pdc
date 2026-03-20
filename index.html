@@ -344,10 +344,10 @@
           return;
         }
 
-        if (username.toLowerCase()) {
+        if (username) {
           // set values
           set(ref(db, `/users/${username}`), {
-            username.toLowerCase(),
+            username,
             raised,
             donated,
             isVip,

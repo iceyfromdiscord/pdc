@@ -305,6 +305,7 @@
       // set button
       setBtn.addEventListener("click", async () => {
         let username = usernameInput.value;
+        username = username.toLowerCase()
         let raised = raisedInput.value;
         let donated = donatedInput.value;
         let isVip = isVipInput.checked;
@@ -326,7 +327,7 @@
 
         if (exists) {
           update(ref(db, `/users/${username}`), {
-            username.toLowerCase(),
+            username,
             raised,
             donated,
             isVip,
